@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{parametros.EditTipodocumentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{parametros.EditTipodocumentoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{tipodocumentoController.selected.id}" title="#{parametros.EditTipodocumentoTitle_id}" required="true" requiredMessage="#{parametros.EditTipodocumentoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{parametros.EditTipodocumentoLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{tipodocumentoController.selected.tipo}" title="#{parametros.EditTipodocumentoTitle_tipo}" required="true" requiredMessage="#{parametros.EditTipodocumentoRequiredMessage_tipo}"/>
+                    <h:outputLabel value="#{parametros.EditTipodocumentoLabel_sigla}" for="sigla" />
+                    <h:inputText id="sigla" value="#{tipodocumentoController.selected.sigla}" title="#{parametros.EditTipodocumentoTitle_sigla}" required="true" requiredMessage="#{parametros.EditTipodocumentoRequiredMessage_sigla}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{tipodocumentoController.update}" value="#{parametros.EditTipodocumentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{parametros.EditTipodocumentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{tipodocumentoController.prepareList}" value="#{parametros.EditTipodocumentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{parametros.EditTipodocumentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

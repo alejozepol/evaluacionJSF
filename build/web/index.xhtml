@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:atr="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <title>Matrix Admin</title><meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/matrix-login.css" />
+        <link href="#{request.contextPath}/resources/frm/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'/>
+
+    </h:head>
+    <h:body>
+        <div id="loginbox">  
+            <h:messages globalOnly="true" showDetail="true"/>
+            <h:form id="loginform" class="form-vertical" prependId="false" >
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lg"><i class="icon-user"> </i></span>
+                            <h:inputText id="doc" atr:placeholder="Username" value="#{usuarioController.documento}"  />
+                             <h:message for="doc" showSummary="true" showDetail="true"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                            <h:inputSecret id="clv" atr:placeholder="Password" value="#{usuarioController.clave}"/>
+                            <h:message for="clv" showSummary="true" showDetail="true"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <span class="pull-left">
+                        <a href="#" class="flip-link btn btn-info" id="to-recover">
+                            Lost password?
+                        </a>
+                    </span>
+                    <span class="pull-right">
+                        <h:commandButton id="btn-login" class="btn btn-success" action="#{usuarioController.iniciarSesion()}" value="Login"/>
+                    </span>
+                </div>
+            </h:form>
+            <h:form id="recoverform" class="form-vertical">
+                <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
+
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on bg_lo"><i class="icon-envelope"></i></span><h:inputText atr:placeholder="E-mail address" />
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
+                    <span class="pull-right"><a class="btn btn-info">Reecover</a></span>
+                </div>
+            </h:form>
+        </div>
+
+        <script src="#{request.contextPath}/resources/js/jquery.min.js"></script>  
+        <script src="#{request.contextPath}/resources/js/matrix.login.js"></script> 
+    </h:body>
+
+</html>

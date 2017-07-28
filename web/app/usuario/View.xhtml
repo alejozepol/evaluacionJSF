@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{parametros.ViewUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_id}"/>
+                    <h:outputText value="#{usuarioController.selected.id}" title="#{parametros.ViewUsuarioTitle_id}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_documento}"/>
+                    <h:outputText value="#{usuarioController.selected.documento}" title="#{parametros.ViewUsuarioTitle_documento}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_primerNombre}"/>
+                    <h:outputText value="#{usuarioController.selected.primerNombre}" title="#{parametros.ViewUsuarioTitle_primerNombre}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_segundoNombre}"/>
+                    <h:outputText value="#{usuarioController.selected.segundoNombre}" title="#{parametros.ViewUsuarioTitle_segundoNombre}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_primerApellido}"/>
+                    <h:outputText value="#{usuarioController.selected.primerApellido}" title="#{parametros.ViewUsuarioTitle_primerApellido}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_segundoApellido}"/>
+                    <h:outputText value="#{usuarioController.selected.segundoApellido}" title="#{parametros.ViewUsuarioTitle_segundoApellido}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_correo}"/>
+                    <h:outputText value="#{usuarioController.selected.correo}" title="#{parametros.ViewUsuarioTitle_correo}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_clave}"/>
+                    <h:outputText value="#{usuarioController.selected.clave}" title="#{parametros.ViewUsuarioTitle_clave}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_estado}"/>
+                    <h:outputText value="#{usuarioController.selected.estado}" title="#{parametros.ViewUsuarioTitle_estado}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_tipoUsuario}"/>
+                    <h:outputText value="#{usuarioController.selected.tipoUsuario}" title="#{parametros.ViewUsuarioTitle_tipoUsuario}"/>
+                    <h:outputText value="#{parametros.ViewUsuarioLabel_tipoDocumento}"/>
+                    <h:outputText value="#{usuarioController.selected.tipoDocumento}" title="#{parametros.ViewUsuarioTitle_tipoDocumento}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{usuarioController.destroyAndView}" value="#{parametros.ViewUsuarioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{parametros.ViewUsuarioEditLink}"/>
+                <br />
+                <h:commandLink action="#{usuarioController.prepareCreate}" value="#{parametros.ViewUsuarioCreateLink}" />
+                <br />
+                <h:commandLink action="#{usuarioController.prepareList}" value="#{parametros.ViewUsuarioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{parametros.ViewUsuarioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

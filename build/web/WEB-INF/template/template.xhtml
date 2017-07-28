@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+        <ui:include src="/WEB-INF/template/head.xhtml"/>
+    </h:head>
+    <h:body>
+        <ui:include src="/WEB-INF/template/header.xhtml"/>
+        <ui:include src="/WEB-INF/template/main-menu.xhtml"/>
+        
+
+
+        <!--main-container-part-->
+        <div id="content">
+            <ui:include src="/WEB-INF/template/breadcrumb.xhtml"/>
+
+            <!--Action boxes-->
+            <div class="container-fluid">
+                <ui:insert name="body">
+                    Aquí es donde está o va a ir todo el contenido
+                </ui:insert>
+            </div>
+        </div>
+
+        <!--end-main-container-part-->
+        <ui:include src="/WEB-INF/template/footer.xhtml"/>
+        <ui:include src="/WEB-INF/template/scripts.xhtml"/>
+    </h:body>
+
+</html>

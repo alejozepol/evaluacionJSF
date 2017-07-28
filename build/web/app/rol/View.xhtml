@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{parametros.ViewRolTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{parametros.ViewRolLabel_id}"/>
+                    <h:outputText value="#{rolController.selected.id}" title="#{parametros.ViewRolTitle_id}"/>
+                    <h:outputText value="#{parametros.ViewRolLabel_nombre}"/>
+                    <h:outputText value="#{rolController.selected.nombre}" title="#{parametros.ViewRolTitle_nombre}"/>
+                    <h:outputText value="#{parametros.ViewRolLabel_descripcion}"/>
+                    <h:outputText value="#{rolController.selected.descripcion}" title="#{parametros.ViewRolTitle_descripcion}"/>
+                    <h:outputText value="#{parametros.ViewRolLabel_usuarioList}"/>
+                    <h:outputText value="#{rolController.selected.usuarioList}" title="#{parametros.ViewRolTitle_usuarioList}"/>
+                    <h:outputText value="#{parametros.ViewRolLabel_permisoList}"/>
+                    <h:outputText value="#{rolController.selected.permisoList}" title="#{parametros.ViewRolTitle_permisoList}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{rolController.destroyAndView}" value="#{parametros.ViewRolDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{parametros.ViewRolEditLink}"/>
+                <br />
+                <h:commandLink action="#{rolController.prepareCreate}" value="#{parametros.ViewRolCreateLink}" />
+                <br />
+                <h:commandLink action="#{rolController.prepareList}" value="#{parametros.ViewRolShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{parametros.ViewRolIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{parametros.EditRolTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{parametros.EditRolLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{rolController.selected.id}" title="#{parametros.EditRolTitle_id}" required="true" requiredMessage="#{parametros.EditRolRequiredMessage_id}"/>
+                    <h:outputLabel value="#{parametros.EditRolLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{rolController.selected.nombre}" title="#{parametros.EditRolTitle_nombre}" required="true" requiredMessage="#{parametros.EditRolRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{parametros.EditRolLabel_descripcion}" for="descripcion" />
+                    <h:inputTextarea rows="4" cols="30" id="descripcion" value="#{rolController.selected.descripcion}" title="#{parametros.EditRolTitle_descripcion}" />
+                    <h:outputLabel value="#{parametros.EditRolLabel_usuarioList}" for="usuarioList" />
+                    <h:inputText id="usuarioList" value="#{rolController.selected.usuarioList}" title="#{parametros.EditRolTitle_usuarioList}" />
+                    <h:outputLabel value="#{parametros.EditRolLabel_permisoList}" for="permisoList" />
+                    <h:inputText id="permisoList" value="#{rolController.selected.permisoList}" title="#{parametros.EditRolTitle_permisoList}" />
+                </h:panelGrid>
+                <h:commandLink action="#{rolController.update}" value="#{parametros.EditRolSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{parametros.EditRolViewLink}"/>
+                <br />
+                <h:commandLink action="#{rolController.prepareList}" value="#{parametros.EditRolShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{parametros.EditRolIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

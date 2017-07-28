@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <!--sidebar-menu-->
+    <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+        <ul>
+            <c:forEach items="#{usuarioController.rolSeleccionado.permisoList}" var="p">
+                <c:if test="#{empty p.permisoPadre}">
+                    <li class="submenu"> <a href="#{p.url}"><i class="fa #{p.icon}"></i> <span>#{p.nombre}</span> <span class="label label-important">3</span></a>
+                        <ul>
+                            <c:forEach items="#{p.permisoList}" var="sp">
+                                <c:forEach items="#{usuarioController.rolSeleccionado.permisoList}" var="pp">
+                                    <c:if test="#{sp.equals(pp)}">
+                                        <li><a href="#{sp.url}">#{sp.nombre}</a></li>
+                                    </c:if>
+                                </c:forEach>
+                            </c:forEach>
+                        </ul>
+                    </li>
+                </c:if>
+            </c:forEach>
+        </ul>
+    </div>
+
+</html>
+

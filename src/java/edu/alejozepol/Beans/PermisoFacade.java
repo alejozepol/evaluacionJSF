@@ -1,0 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.alejozepol.Beans;
+
+import edu.alejozepol.entidades.Permiso;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+/**
+ *
+ * @author alejo
+ */
+@Stateless
+public class PermisoFacade extends AbstractFacade<Permiso> {
+
+    @PersistenceContext(unitName = "evaluacionJSFPU")
+    private EntityManager em;
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
+    }
+
+    public PermisoFacade() {
+        super(Permiso.class);
+    }
+    
+}

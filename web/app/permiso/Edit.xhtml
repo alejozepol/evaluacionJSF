@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{parametros.EditPermisoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{parametros.EditPermisoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{permisoController.selected.id}" title="#{parametros.EditPermisoTitle_id}" required="true" requiredMessage="#{parametros.EditPermisoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{parametros.EditPermisoLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{permisoController.selected.nombre}" title="#{parametros.EditPermisoTitle_nombre}" required="true" requiredMessage="#{parametros.EditPermisoRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{parametros.EditPermisoLabel_url}" for="url" />
+                    <h:inputTextarea rows="4" cols="30" id="url" value="#{permisoController.selected.url}" title="#{parametros.EditPermisoTitle_url}" />
+                    <h:outputLabel value="#{parametros.EditPermisoLabel_icon}" for="icon" />
+                    <h:inputText id="icon" value="#{permisoController.selected.icon}" title="#{parametros.EditPermisoTitle_icon}" />
+                    <h:outputLabel value="#{parametros.EditPermisoLabel_rolList}" for="rolList" />
+                    <h:inputText id="rolList" value="#{permisoController.selected.rolList}" title="#{parametros.EditPermisoTitle_rolList}" />
+                    <h:outputLabel value="#{parametros.EditPermisoLabel_permisoList}" for="permisoList" />
+                    <h:inputText id="permisoList" value="#{permisoController.selected.permisoList}" title="#{parametros.EditPermisoTitle_permisoList}" />
+                    <h:outputLabel value="#{parametros.EditPermisoLabel_permisoPadre}" for="permisoPadre" />
+                    <h:selectOneMenu id="permisoPadre" value="#{permisoController.selected.permisoPadre}" title="#{parametros.EditPermisoTitle_permisoPadre}" >
+                        <f:selectItems value="#{permisoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{permisoController.update}" value="#{parametros.EditPermisoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{parametros.EditPermisoViewLink}"/>
+                <br />
+                <h:commandLink action="#{permisoController.prepareList}" value="#{parametros.EditPermisoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{parametros.EditPermisoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

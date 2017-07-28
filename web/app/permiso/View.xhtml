@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{parametros.ViewPermisoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{parametros.ViewPermisoLabel_id}"/>
+                    <h:outputText value="#{permisoController.selected.id}" title="#{parametros.ViewPermisoTitle_id}"/>
+                    <h:outputText value="#{parametros.ViewPermisoLabel_nombre}"/>
+                    <h:outputText value="#{permisoController.selected.nombre}" title="#{parametros.ViewPermisoTitle_nombre}"/>
+                    <h:outputText value="#{parametros.ViewPermisoLabel_url}"/>
+                    <h:outputText value="#{permisoController.selected.url}" title="#{parametros.ViewPermisoTitle_url}"/>
+                    <h:outputText value="#{parametros.ViewPermisoLabel_icon}"/>
+                    <h:outputText value="#{permisoController.selected.icon}" title="#{parametros.ViewPermisoTitle_icon}"/>
+                    <h:outputText value="#{parametros.ViewPermisoLabel_rolList}"/>
+                    <h:outputText value="#{permisoController.selected.rolList}" title="#{parametros.ViewPermisoTitle_rolList}"/>
+                    <h:outputText value="#{parametros.ViewPermisoLabel_permisoList}"/>
+                    <h:outputText value="#{permisoController.selected.permisoList}" title="#{parametros.ViewPermisoTitle_permisoList}"/>
+                    <h:outputText value="#{parametros.ViewPermisoLabel_permisoPadre}"/>
+                    <h:outputText value="#{permisoController.selected.permisoPadre}" title="#{parametros.ViewPermisoTitle_permisoPadre}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{permisoController.destroyAndView}" value="#{parametros.ViewPermisoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{parametros.ViewPermisoEditLink}"/>
+                <br />
+                <h:commandLink action="#{permisoController.prepareCreate}" value="#{parametros.ViewPermisoCreateLink}" />
+                <br />
+                <h:commandLink action="#{permisoController.prepareList}" value="#{parametros.ViewPermisoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{parametros.ViewPermisoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

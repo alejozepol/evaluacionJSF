@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{parametros.ViewAdjuntoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{parametros.ViewAdjuntoLabel_idAdjunto}"/>
+                    <h:outputText value="#{adjuntoController.selected.idAdjunto}" title="#{parametros.ViewAdjuntoTitle_idAdjunto}"/>
+                    <h:outputText value="#{parametros.ViewAdjuntoLabel_ruta}"/>
+                    <h:outputText value="#{adjuntoController.selected.ruta}" title="#{parametros.ViewAdjuntoTitle_ruta}"/>
+                    <h:outputText value="#{parametros.ViewAdjuntoLabel_idUsuario}"/>
+                    <h:outputText value="#{adjuntoController.selected.idUsuario}" title="#{parametros.ViewAdjuntoTitle_idUsuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adjuntoController.destroyAndView}" value="#{parametros.ViewAdjuntoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{parametros.ViewAdjuntoEditLink}"/>
+                <br />
+                <h:commandLink action="#{adjuntoController.prepareCreate}" value="#{parametros.ViewAdjuntoCreateLink}" />
+                <br />
+                <h:commandLink action="#{adjuntoController.prepareList}" value="#{parametros.ViewAdjuntoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{parametros.ViewAdjuntoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
